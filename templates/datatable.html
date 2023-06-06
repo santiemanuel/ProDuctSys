@@ -1,0 +1,31 @@
+{% block datatable %}
+<script>
+    $(document).ready(function () {
+        var tableOptions = {
+            paging: true,
+            pageLength: 8,
+            lengthChange: true,
+            autoWidth: true,
+            info: true,
+            sort: true,
+            columnDefs: [
+                { orderable: false, targets: -1 }
+            ],
+            language: {
+                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+            }
+        };
+
+        $("#provider-table, #product-table").each(function () {
+            $(this).DataTable({
+                ...tableOptions,
+                columnDefs: [
+                    ...tableOptions.columnDefs,
+                    { searchable: false, targets: [-1] }
+                ]
+            });
+        });
+    });
+
+</script>
+{% endblock %}

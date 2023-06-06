@@ -1,0 +1,26 @@
+<table id="provider-table" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Proveedor</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }} $</td>
+            <td>{{ product.stock }}</td>
+            <td>{{ product.provider }}</td>
+            <td style="display: flex; justify-content: space-between;">
+                <div style="margin-right: -64px;">
+                  <a href="{% url 'product-delete' product.id %}" class="btn btn-danger" style="padding: 4px 8px;">Eliminar</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<form action="#" method="POST">
+    {% csrf_token %}
+    <div class="form-floating mb-3">
+        {{ form.first_name }}
+        <label for="{{ form.first_name.id_for_label }}">Nombre</label>
+        {{ form.first_name.errors }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.last_name }}
+        <label for="{{ form.last_name.id_for_label }}">Apellido</label>
+        {{ form.last_name.errors }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.personal_id }}
+        <label for="{{ form.personal_id.id_for_label }}">DNI</label>
+        {{ form.personal_id.errors }}
+    </div>
+    <input type="submit" class="btn {{ action }}" value="{{ submit }}">
+    <a href="{% url 'provider-list' %}" class="btn btn-secondary">Volver a la Lista de Proveedores</a>
+</form>
+{% endblock %}
