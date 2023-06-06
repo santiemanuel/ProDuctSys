@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<form action="#" method="POST">
+    {% csrf_token %}
+    <div class="form-floating mb-3">
+        {{ form.name }}
+        <label for="{{ form.name.id_for_label }}">Nombre</label>
+        {{ form.name.errors }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.price }}
+        <label for="{{ form.last_name.id_for_label }}">Precio</label>
+        {{ form.price.errors }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.stock }}
+        <label for="{{ form.stock.id_for_label }}">Stock</label>
+        {{ form.stock.errors }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.provider }}
+        <label for="{{ form.provider.id_for_label }}">Proveedor</label>
+        {{ form.provider.errors }}
+    </div>
+    <input type="submit" class="btn {{ action }}" value="{{ submit }}">
+    <a href="{% url 'product-list' %}" class="btn btn-secondary">Volver a la Lista de Productos</a>
+</form>
+{% endblock %}
